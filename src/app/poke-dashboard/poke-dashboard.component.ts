@@ -21,9 +21,4 @@ export class PokeDashboardComponent implements OnInit {
   getPokemons(): void {
     this.pokemonService.getPokemons().subscribe(pokemons => this.pokemons = pokemons);
   }
-
-  onClick(pokemon : Pokemon) : void {
-    this.router.navigate(['pokeDetail', pokemon.id]);
-  }
-
 }
