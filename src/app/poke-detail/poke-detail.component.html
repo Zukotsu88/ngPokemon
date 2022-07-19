@@ -1,2 +1,62 @@
-<p>poke-detail works!</p>
-<p>this is the pokemon detail page</p>
+<div style="text-align: center">
+<h3>{{pokemon?.name}}'s Data</h3>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Attribute</th>
+      <th scope="col">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">ID</th>
+      <td>{{ pokemon?.id }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Name</th>
+      <td> {{ pokemon?.name }} </td>
+    </tr>
+    <tr>
+      <th scope="row">Description</th>
+      <td> {{ pokemon?.description }} </td>
+    </tr>
+    <tr>
+      <th scope="row">Primary Type</th>
+      <td colspan="2">{{ pokemon?.primaryType }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Secondary Type</th>
+      <td colspan="2"> {{ pokemon?.secondaryType }} </td>
+    </tr>
+    <tr>
+      <th scope="row">HP</th>
+      <td colspan="2">{{ pokemon?.hp }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Attack</th>
+      <td colspan="2">{{ pokemon?.attack }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Defense</th>
+      <td colspan="2">{{ pokemon?.defense }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Special Attack</th>
+      <td colspan="2">{{ pokemon?.spAtk }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Special Defense</th>
+      <td colspan="2">{{ pokemon?.spDef }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Speed</th>
+      <td colspan="2">{{ pokemon?.speed }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="text-align: center">
+  <button class="btn btn-primary mt-5 mb-5" (click)="goBack()">Go Back</button>
+</div>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, filter, map, tap } from 'rxjs/operators';
 import { Pokemon } from './pokemon';
 
 @Injectable({
@@ -38,10 +38,27 @@ export class PokemonService {
     );
   }
 
+
+  getPokemonOfType(type : string): Observable<Pokemon[]> {
+    console.log('THIS IS THE TYPE:');
+    console.log(type);
+
+    const pokemons$ = this.http.get<Pokemon[]>(this.pokemonUrl);
+
+    pokemons$.pipe(
+        map(pokemons => pokemons
+          .filter(pokemon => pokemon.primaryType.includes(type) || pokemon.secondaryType.includes(type))),
+        catchError(this.handleError<Pokemon[]>('getPokemonOfType', [])),
+      );
+
+      console.log(pokemons$);
+      return pokemons$;
+  }
+
   // TODO: POST for adding a pokemon
 
   // TODO: PUT for updating a pokemon
 
-  // TODO: DELETE fro deleting a pokemon
+  // TODO: DELETE for deleting a pokemon
 
 }

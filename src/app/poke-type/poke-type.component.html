@@ -1,1 +1,17 @@
-<p>poke-type works!</p>
+<div class="list-group">
+  <a
+    *ngFor="let pokemon of pokemons"
+    class="list-group-item list-group-item-action"
+  >
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ pokemon.name }}</h5>
+      <small>ID: {{ pokemon.id }} </small>
+    </div>
+    <p class="mb-1">{{ pokemon.description }}</p>
+    <div>
+      <a [routerLink]="['/pokeDetail', pokemon.id]">
+        <button class="btn btn-primary">View Pokemon {{ pokemon.name }}</button>
+      </a>
+    </div>
+  </a>
+</div>
